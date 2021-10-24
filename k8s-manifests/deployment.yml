@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otus-hw-1
+  namespace: otus
+  labels:
+    app: otus-hw-1
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: otus-hw-1
+  template:
+    metadata:
+      labels:
+        app: otus-hw-1
+    spec:
+      containers:
+        - name: health-srv
+          image: bananasoul/otus-msa-hw-1
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 10
