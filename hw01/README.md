@@ -23,6 +23,7 @@ Extra задание - в Ingress-е должно быть правило, ко�
 Загрузка манифестов в k8s:
 ```shell
 cd k8s-manifests
+kubectl create ns otus
 kubectl apply -f .
 ```
 
