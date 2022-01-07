@@ -1,5 +1,7 @@
 # Домашнее задание #2
 
+## Задача
+
 Сделать простейший RESTful CRUD по созданию, удалению, просмотру и обновлению пользователей. 
 Пример API  - https://app.swaggerhub.com/apis/otus55/users/1.0.0 
 
@@ -20,3 +22,23 @@ Ingress-ы должны также вести на url arch.homework/ (как и
 
 Задание со звездочкой:
 +5 балла за шаблонизацию приложения в helm чартах
+
+## Реализация
+
+Манифесты [тут](manifests). Сервис прогоняет миграции при старте контейнера.
+Проверялось на:
+
+1. Helm 3.7.0
+
+Приложение запускать следующим образом:
+
+```shell
+cd manifests
+
+# Create namespace
+kubectl create ns otus-msa-hw02
+
+# Install postgresql
+helm dep up otus-msa-hw02
+```
+
