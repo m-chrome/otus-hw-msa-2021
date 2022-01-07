@@ -40,5 +40,8 @@ kubectl create ns otus-msa-hw02
 
 # Install postgresql
 helm dep up otus-msa-hw02
+
+# Start application
+helm install otus-msa-hw02 otus-msa-hw02 --namespace otus-msa-hw02
 ```
 
