@@ -17,7 +17,7 @@ def get_user(db: Session, user_id: int) -> models.User:
 
 
 def update_user(db: Session, user_id: int, user_data: schemas.UserUpdate):
-    db.query(models.User).filter(models.User.id == user_id).update(**user_data.dict())
+    db.query(models.User).filter(models.User.id == user_id).update(user_data.dict())
     db.commit()
 
 
