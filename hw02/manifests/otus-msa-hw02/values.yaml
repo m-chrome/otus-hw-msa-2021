@@ -6,7 +6,7 @@ replicaCount: 2
 
 image:
   repository: bananasoul/otus-msa-hw02
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: latest
 
 imagePullSecrets: []
