@@ -13,6 +13,9 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+autoscaling:
+  enabled: false
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -46,4 +49,5 @@ postgresql:
   postgresqlUsername: postgres
   postgresqlPassword: password
   postgresqlDatabase: postgres
+  fullnameOverride: postgres
   servicePort: "5432"
