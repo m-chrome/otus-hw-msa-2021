@@ -28,7 +28,9 @@ Ingress-ы должны также вести на url arch.homework/ (как и
 Манифесты [тут](manifests). Сервис прогоняет миграции при старте контейнера.
 Проверялось на:
 
-1. Helm 3.7.0
+1. docker 20.10.12
+2. helm 3.7.0
+3. minikube 1.23.2
 
 Приложение запускать следующим образом:
 
@@ -38,10 +40,9 @@ cd manifests
 # Create namespace
 kubectl create ns otus-msa-hw02
 
-# Install postgresql
+# Download postgresql chart
 helm dep up otus-msa-hw02
 
 # Start application
 helm install otus-msa-hw02 otus-msa-hw02 --namespace otus-msa-hw02
 ```
-
