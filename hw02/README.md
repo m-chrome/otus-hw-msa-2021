@@ -25,7 +25,7 @@ Ingress-ы должны также вести на url arch.homework/ (как и
 
 ## Реализация
 
-Манифесты [тут](manifests). Сервис прогоняет миграции при старте контейнера,
+[Манифесты](manifests). Сервис прогоняет миграции при старте контейнера,
 джоба не реализовывалась. Приложение шаблонизировано сразу в helm. Проверялось на:
 
 1. docker 20.10.12
@@ -40,3 +40,5 @@ kubectl create ns otus-msa-hw02
 helm dep up otus-msa-hw02
 helm install otus-msa-hw02 otus-msa-hw02 --namespace otus-msa-hw02
 ```
+
+Postman [коллекция](postman.json).
