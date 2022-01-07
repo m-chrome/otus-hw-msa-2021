@@ -2,8 +2,10 @@ from fastapi import FastAPI, Request, Depends, status
 from fastapi.exceptions import HTTPException
 from sqlalchemy.orm import Session
 
-import crud, schemas
+import crud
+import schemas
 from database import SessionLocal
+
 
 def get_db():
     db = SessionLocal()
@@ -11,6 +13,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 app = FastAPI()
 
