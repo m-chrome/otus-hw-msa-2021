@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: otus-msa-hw02-secret
+type: Opaque
+data:
+  DB_DSN: {{ printf "postgresql://%s:%s@%s:%s/%s" .Values.postgresql.postgresqlUsername .Values.postgresql.postgresqlPassword .Values.postgresql.fullnameOverride .Values.postgresql.servicePort .Values.postgresql.postgresqlDatabase  | b64enc | quote }}

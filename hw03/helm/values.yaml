@@ -1,0 +1,49 @@
+# Default values for otus-msa-hw02.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+
+image:
+  repository: bananasoul/otus-msa-hw02
+  pullPolicy: Always
+  tag: latest
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+autoscaling:
+  enabled: false
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {
+    nginx.ingress.kubernetes.io/rewrite.target: /
+  }
+  hosts:
+    - host: arch.homework
+      paths:
+        - path: /
+          pathType: Prefix
+
+postgresql:
+  postgresqlUsername: postgres
+  postgresqlPassword: password
+  postgresqlDatabase: postgres
+  fullnameOverride: postgres
+  servicePort: "5432"
