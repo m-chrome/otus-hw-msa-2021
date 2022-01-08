@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request, Depends, status
 from fastapi.exceptions import HTTPException
+from prometheus_fastapi_instrumentator import Instrumentator
 from sqlalchemy.orm import Session
 
 import crud
@@ -44,3 +45,7 @@ def put_user(user_id: int, body: schemas.UserUpdate, db: Session = Depends(get_d
 @app.delete("/user/{user_id}")
 def delete_user(user_id: int, db: Session = Depends(get_db)):
     crud.delete_user(db, user_id)
+
+
+# Prometheus
+Instrumentator().instrument(app).expose(app)
